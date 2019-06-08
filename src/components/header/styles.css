@@ -1,0 +1,29 @@
+@import "../../index.css";
+
+header {
+  border-bottom: 1px solid black;
+  font-family: var(--title-font);
+  background-color: var(--back-grey);
+}
+
+header .container {
+  width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header li {
+  color: var(--yellow);
+  font-size: 20px;
+  line-height: 20px;
+  padding: 15px 0 25px 0;
+  margin-right: 80px;
+}
+
+header nav {
+  display: flex;
+  flex-direction: row;
+}

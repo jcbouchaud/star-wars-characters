@@ -1,0 +1,12 @@
+.selected-character {
+  background-color: var(--back-white);
+}
+
+.selected-character .container {
+  width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

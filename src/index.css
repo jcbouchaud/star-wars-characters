@@ -1,13 +1,16 @@
+@import "./assets//fonts//stylesheet.css";
+@import "./reset.css";
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  --title-font: "Star Jedi Logo DoubleLine1";
+  --back-grey: #212121;
+  --back-light-grey: #424748;
+  --back-white: #ffffff;
+  --yellow: #f5e11f;
+  --regular-shadow: 1px 0.5px 10px 3px rgba(150, 150, 150, 0.25);
+  --hover-shadow: 1px 0.5px 10px 3px rgba(150, 150, 150, 0.5);
+  color: var(--back-grey);
 }

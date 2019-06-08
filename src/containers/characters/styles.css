@@ -1,0 +1,107 @@
+@import "../../index.css";
+
+.people {
+  background-color: var(--back-white);
+}
+
+.people .container {
+  width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.people .pages {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 80px 0;
+}
+
+.people .pages .page-number {
+  height: 30px;
+  width: 30px;
+  margin: 0 10px;
+  color: var(--back-grey);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-family: "StarJedi Special Edition";
+}
+
+.people .pages .page-number:hover {
+  background-color: var(--back-grey);
+  color: var(--yellow);
+}
+
+.people .pages .selected-page {
+  height: 30px;
+  width: 30px;
+  margin: 0 10px;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-family: "StarJedi Special Edition";
+  background-color: var(--back-grey);
+  color: var(--yellow);
+}
+
+.people .pages i {
+  margin: 50px;
+  font-size: 12px;
+  padding-top: 7px;
+}
+
+.people .character {
+  width: 120px;
+  height: 120px;
+  margin: 30px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--back-white);
+  border-radius: 5px;
+  box-shadow: var(--regular-shadow);
+  color: var(--back-light-grey);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.people .character:hover {
+  box-shadow: var(--hover-shadow);
+}
+
+.people .character > div {
+  text-align: center;
+}
+
+.people .characters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.people input {
+  margin: 80px 0 50px 0;
+  padding: 0 10px;
+  height: 40px;
+  width: 300px;
+  color: var(--back-light-grey);
+  border-bottom: 2px solid var(--back-grey);
+  font-size: 16px;
+}
+
+.people input::placeholder {
+  font-style: italic;
+  opacity: 0.5;
+}
