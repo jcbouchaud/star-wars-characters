@@ -92,11 +92,11 @@ class Character extends React.Component {
               </div>
               <div className="info">
                 <div>CREATION DATE</div>
-                <div>{created}</div>
+                <div>{created.substr(0, 10)}</div>
               </div>
               <div className="info">
                 <div>LAST EDITION DATE</div>
-                <div>{edited}</div>
+                <div>{edited.substr(0, 10)}</div>
               </div>
             </div>
           </div>

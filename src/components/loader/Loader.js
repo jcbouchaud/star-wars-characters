@@ -7,9 +7,7 @@ class Loader extends React.Component {
   render() {
     return (
       <div className="loader">
-        <div className="container">
-          <img src={logo} alt="Star Wars logo" className="animated-logo" />
-        </div>
+        <img src={logo} alt="Star Wars logo" className="animated-logo" />
       </div>
     );
   }

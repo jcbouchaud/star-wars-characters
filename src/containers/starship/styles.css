@@ -41,7 +41,7 @@
 }
 
 .starship-details .pilot {
-  padding: 10px;
+  padding: 0 10px;
   color: var(--back-light-grey);
   font-weight: 700;
   margin: 5px 0;

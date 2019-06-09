@@ -41,7 +41,7 @@
 }
 
 .selected-character .starship {
-  padding: 10px;
+  padding: 0;
   color: var(--back-light-grey);
   font-weight: 700;
   margin: 5px 0;
