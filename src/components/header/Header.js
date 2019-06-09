@@ -12,7 +12,6 @@ class Header extends React.Component {
             <Link to="/">
               <li>CHARACTERS</li>
             </Link>
-            <li>STARSHIPS</li>
           </nav>
         </div>
       </header>

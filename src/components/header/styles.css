@@ -7,6 +7,7 @@ header {
 }
 
 header .container {
+  background-color: var(--back-grey);
   width: 1200px;
   margin: auto;
   display: flex;
@@ -26,4 +27,23 @@ header li {
 header nav {
   display: flex;
   flex-direction: row;
+}
+
+@media only screen and (max-width: 1200px) {
+  header .container {
+    width: 100%;
+    justify-content: center;
+  }
+  header li {
+    margin: 0;
+  }
+}
+@media only screen and (max-width: 992px) {
+}
+@media only screen and (max-width: 768px) {
+  header .container {
+    position: fixed;
+  }
+}
+@media only screen and (max-width: 600px) {
 }

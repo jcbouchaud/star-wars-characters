@@ -5,7 +5,26 @@ import Loader from "../../components/loader/Loader";
 import { Link } from "react-router-dom";
 
 class Characters extends React.Component {
-  state = { page: 0, filterInput: null };
+  state = {
+    characters: null,
+    pages: null,
+    page: 0,
+    dataIsLoading: true,
+    filterInput: null
+  };
+
+  // MAP ALL API LINKS SO WE CAN GET ALL DATA + GET PAGINATION
+
+  getData = async data => {
+    let array = [];
+    let pages = [];
+    for (let i = 1; i <= Math.ceil(data.count / data.results.length); i++) {
+      await axios
+        .get(`https://swapi.co/api/people/?page=${i}`)
+        .then(res => array.push(res.data), pages.push(i));
+    }
+    this.setState({ characters: array, pages: pages, dataIsLoading: false });
+  };
 
   getInput = event => {
     this.setState({ filterInput: event.target.value });
@@ -17,22 +36,22 @@ class Characters extends React.Component {
     const index = link;
     const regex = /https:\/\/swapi.co\/api\/people\//gi;
     const newIndex = index.replace(regex, "");
-    console.log(newIndex);
     return newIndex;
   };
 
   // MAP ALL CHARACTERS API URL SO WE CAN ACCESS ALL CHARACTERS IN ONCE
 
   filterByName = () => {
+    const { characters, filterInput } = this.state;
     const allData =
-      this.props.data &&
-      this.props.data.map(x =>
+      characters &&
+      characters.map(x =>
         x.results
           .filter(
             character =>
               character.name
                 .toLowerCase()
-                .indexOf(this.state.filterInput.toLowerCase()) !== -1
+                .indexOf(filterInput.toLowerCase()) !== -1
           )
           .map(character => (
             <Link
@@ -49,25 +68,32 @@ class Characters extends React.Component {
   };
 
   incrementPage = () => {
-    if (this.state.page >= 0 && this.state.page < this.props.pages.length - 1) {
-      this.setState({ page: this.state.page + 1 });
+    const { page, pages } = this.state;
+
+    if (page >= 0 && page < pages.length - 1) {
+      this.setState({ page: page + 1 });
     }
   };
 
   decrementPage = () => {
-    if (this.state.page > 0 && this.state.page <= this.props.pages.length - 1) {
-      this.setState({ page: this.state.page - 1 });
+    const { page, pages } = this.state;
+    if (page > 0 && page <= pages.length - 1) {
+      this.setState({ page: page - 1 });
     }
   };
 
   render() {
-    if (this.props.dataIsLoading) {
+    const { dataIsLoading } = this.state;
+    if (dataIsLoading) {
       return (
-        <div>
-          <Loader />
-        </div>
+        <section className="people">
+          <div className="container">
+            <Loader />
+          </div>
+        </section>
       );
     } else {
+      const { pages, characters, page, filterInput } = this.state;
       return (
         <section className="people">
           <div className="container">
@@ -77,7 +103,7 @@ class Characters extends React.Component {
                 onChange={event => this.getInput(event)}
               />
             </div>
-            {this.state.filterInput ? (
+            {filterInput ? (
               <div>
                 <ul className="characters">{this.filterByName()}</ul>
               </div>
@@ -85,7 +111,7 @@ class Characters extends React.Component {
               <div className="container">
                 <div>
                   <ul className="characters">
-                    {this.props.data[this.state.page].results.map(character => (
+                    {characters[page].results.map(character => (
                       <Link
                         key={character.url}
                         to={`/character/${this.getCharacterId(character.url)}`}
@@ -103,17 +129,15 @@ class Characters extends React.Component {
                       className="fas fa-chevron-left"
                       onClick={() => this.decrementPage()}
                     />
-                    {this.props.pages.map(page => (
+                    {pages.map(x => (
                       <li
                         className={
-                          this.state.page + 1 === page
-                            ? "selected-page"
-                            : "page-number"
+                          page + 1 === x ? "selected-page" : "page-number"
                         }
-                        key={page}
-                        onClick={() => this.setState({ page: page - 1 })}
+                        key={x}
+                        onClick={() => this.setState({ page: x - 1 })}
                       >
-                        <div>{page}</div>
+                        <div>{x}</div>
                       </li>
                     ))}
                     <i
@@ -133,7 +157,7 @@ class Characters extends React.Component {
   componentDidMount() {
     axios
       .get(`https://swapi.co/api/people/`)
-      .then(response => this.props.getData(response.data));
+      .then(response => this.getData(response.data));
   }
 }
 
