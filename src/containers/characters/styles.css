@@ -111,8 +111,7 @@
     width: 100%;
   }
 }
-@media only screen and (max-width: 992px) {
-}
+
 @media only screen and (max-width: 768px) {
   .people .character {
     margin: 10px;

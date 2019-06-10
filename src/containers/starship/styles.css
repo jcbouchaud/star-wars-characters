@@ -15,15 +15,16 @@
 }
 
 .starship-details .thumbnail {
-  padding: 50px;
+  padding: 25px 0;
   background-color: var(--back-white);
   border-radius: 5px;
   box-shadow: var(--regular-shadow);
   color: var(--back-light-grey);
+  margin-bottom: 50px;
 }
 
 .starship-details .info {
-  margin-bottom: 25px;
+  padding: 0 25px 15px 25px;
 }
 
 .starship-details .info > div:nth-child(1) {
@@ -41,7 +42,7 @@
 }
 
 .starship-details .pilot {
-  padding: 0 10px;
+  padding: 10px;
   color: var(--back-light-grey);
   font-weight: 700;
   margin: 5px 0;
@@ -60,10 +61,4 @@
   .starship-details .thumbnail {
     box-shadow: none;
   }
-}
-@media only screen and (max-width: 992px) {
-}
-@media only screen and (max-width: 768px) {
-}
-@media only screen and (max-width: 600px) {
 }

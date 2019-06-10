@@ -13,11 +13,11 @@ class Characters extends React.Component {
     filterInput: null
   };
 
-  // MAP ALL API LINKS SO WE CAN GET ALL DATA + GET PAGINATION
+  // GET DATA FROM ALL API's
 
   getData = async data => {
-    let array = [];
-    let pages = [];
+    let array = []; // IN ORDER TO PUSH ALL API's DATA IN A SINGLE ARRAY
+    let pages = []; //NUMBER OF PAGES IS EQUAL TO NUMBER OF API's TO CALL
     for (let i = 1; i <= Math.ceil(data.count / data.results.length); i++) {
       await axios
         .get(`https://swapi.co/api/people/?page=${i}`)
@@ -31,7 +31,6 @@ class Characters extends React.Component {
   };
 
   // GET CHARACTER ID THROUGH ITS API LINK AS IT HAS NO UNIQUE ID
-
   getCharacterId = link => {
     const index = link;
     const regex = /https:\/\/swapi.co\/api\/people\//gi;
@@ -40,7 +39,6 @@ class Characters extends React.Component {
   };
 
   // MAP ALL CHARACTERS API URL SO WE CAN ACCESS ALL CHARACTERS IN ONCE
-
   filterByName = () => {
     const { characters, filterInput } = this.state;
     const allData =
@@ -103,6 +101,7 @@ class Characters extends React.Component {
                 onChange={event => this.getInput(event)}
               />
             </div>
+            {/* IF FILTER INPUT IS USED, ALL DATA WILL BE DISPLAYED IN A SIGNLE PAGE, WHILE REGULAR DATA WILL BE DISPLAYED IN PAGES */}
             {filterInput ? (
               <div>
                 <ul className="characters">{this.filterByName()}</ul>

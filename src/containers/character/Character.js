@@ -14,7 +14,7 @@ class Character extends React.Component {
     await this.state.data.starships.map(url =>
       axios
         .get(url)
-        .then(response => starshipsArray.push(response.data))
+        .then(response => starshipsArray.push(response.data)) // PUSH RESPONSE IN AN ARRAY OF OBJECTS
         .then(() =>
           this.setState({ starships: starshipsArray }, () =>
             console.log(this.state.starships)
@@ -76,6 +76,7 @@ class Character extends React.Component {
               <div className="info">
                 <div>STARSHIPS</div>
                 <div>
+                  {/* MAP ON STARSHIP ARRAY OF OBJECTS */}
                   {starships
                     ? starships.map(starship => (
                         <Link

@@ -19,11 +19,12 @@
   border-radius: 5px;
   box-shadow: var(--regular-shadow);
   color: var(--back-light-grey);
+  padding: 25px 0;
   margin-bottom: 50px;
 }
 
 .selected-character .info {
-  padding: 15px 25px;
+  padding: 0 25px 15px 25px;
 }
 
 .selected-character .info > div:nth-child(1) {
@@ -41,7 +42,7 @@
 }
 
 .selected-character .starship {
-  padding: 0;
+  padding: 10px;
   color: var(--back-light-grey);
   font-weight: 700;
   margin: 5px 0;
@@ -60,10 +61,4 @@
   .selected-character .thumbnail {
     box-shadow: none;
   }
-}
-@media only screen and (max-width: 992px) {
-}
-@media only screen and (max-width: 768px) {
-}
-@media only screen and (max-width: 600px) {
 }

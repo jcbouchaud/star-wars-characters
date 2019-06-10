@@ -38,12 +38,9 @@ header nav {
     margin: 0;
   }
 }
-@media only screen and (max-width: 992px) {
-}
+
 @media only screen and (max-width: 768px) {
   header .container {
     position: fixed;
   }
-}
-@media only screen and (max-width: 600px) {
 }

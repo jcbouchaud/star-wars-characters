@@ -62,7 +62,7 @@ class Starship extends React.Component {
               </div>
               <div className="info">
                 <div>PILOTS</div>
-                <div>
+                <ul>
                   {pilots
                     ? pilots.map(pilot => (
                         <Link
@@ -75,7 +75,7 @@ class Starship extends React.Component {
                         </Link>
                       ))
                     : "aucun"}
-                </div>
+                </ul>
               </div>
             </div>
           </div>
